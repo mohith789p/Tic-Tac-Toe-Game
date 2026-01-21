@@ -26,7 +26,7 @@ public class TicTacToeCLI {
         displayBoard();
         char currentSymbol = game.getCurrentPlayer();
         String currentName = (currentSymbol == 'X') ? playerX : playerO;
-        System.out.print(" " + currentName + "'s turn. Enter row and column: ");
+        System.out.print(" " +  AnsiColor.PURPLE + currentName + AnsiColor.RESET+ "'s turn. Enter row and column: " + AnsiColor.YELLOW);
         try{
             row = sc.nextInt();
             col = sc.nextInt();
@@ -34,6 +34,8 @@ public class TicTacToeCLI {
             System.out.println(AnsiColor.RED + "Please enter valid integers for row and column." + AnsiColor.RESET);
             sc.nextLine();
             continue;
+        } finally {
+            System.out.print(AnsiColor.RESET);
         }
 
         if (!game.makeMove(row, col)) {
@@ -45,9 +47,9 @@ public class TicTacToeCLI {
     char winner = game.checkWinner();
     if (winner != ' ') {
         String player = (winner == 'X') ? playerX : playerO;
-        System.out.println(AnsiColor.GREEN + "Congratulations " + player + "! You win!" + AnsiColor.RESET);
+        System.out.println(AnsiColor.GREEN + "\nCongratulations " + player + "! You win!" + AnsiColor.RESET);
     } else {
-        System.out.println("It's a draw!");
+        System.out.println(AnsiColor.BLUE + "\nIt's a draw!" + AnsiColor.RESET);
     }
 }
 
