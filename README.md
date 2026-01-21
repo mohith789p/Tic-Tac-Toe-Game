@@ -28,3 +28,20 @@
 This version is a simple command-line (text-based) game of Tic-Tac-Toe. It keeps the classic rules and quick play of the paper-and-pencil original while running in a terminal window. It's easy to learn, fast to play, and great for practicing strategic thinking. Games are usually short and perfect for casual play or deciding small decisions.
 
 Have fun and enjoy the game!
+
+## Demo
+
+- Animated demo (inline):
+
+  ![Demo GIF](assets/demo.gif)
+
+- Click the thumbnail to open the demo image/GIF:
+
+  [![Demo Thumbnail](assets/demo_thumbnail.png)](assets/demo.gif)
+
+- If you want a full-resolution `mp4`, add `assets/demo.mp4` to the repository (or upload it to YouTube and link here). To recreate the thumbnail and GIF locally using `ffmpeg` run:
+
+```powershell
+ffmpeg -ss 00:00:02 -i "E:\path\to\source.mp4" -frames:v 1 -q:v 2 -update 1 assets/demo_thumbnail.png
+ffmpeg -i "E:\path\to\source.mp4" -vf "fps=12,scale=640:-1:flags=lanczos" -loop 0 assets/demo.gif
+```
